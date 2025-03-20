@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julianna Boros | Health Researcher</title>
+    <style>
+        :root {
+            --primary-color: #546e7a;
+            --secondary-color: #78909c;
+            --accent-color: #ff6e40;
+            --dark-color: #263238;
+            --light-color: #eceff1;
+            --text-color: #37474f;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-color: var(--primary-color);
+            transform: skewY(-3deg);
+            z-index: -1;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 60px 0;
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--white);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+        
+        .title {
+            font-size: 22px;
+            color: var(--light-color);
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-right: 15px;
+            box-shadow: 0 5px 15px rgba(255, 110, 64, 0.4);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 110, 64, 0.6);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+        
+        .contact-info {
+            margin-top: 30px;
+            color: var(--light-color);
+        }
+        
+        .contact-info a {
+            color: var(--light-color);
+            text-decoration: none;
+        }
+        
+        .contact-info a:hover {
+            color: var(--accent-color);
+        }
+        
+        main {
+            padding: 60px 0;
+        }
+        
+        section {
+            margin-bottom: 60px;
+        }
+        
+        h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .expertise-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .expertise-card {
+            flex: 1;
+            min-width: 250px;
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .expertise-card h3 {
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+        
+        .expertise-card p {
+            color: var(--text-color);
+        }
+        
+        .experience-item {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .experience-title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .experience-title h3 {
+            color: var(--dark-color);
+            font-size: 22px;
+        }
+        
+        .experience-title .company {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .experience-title .period {
+            color: var(--secondary-color);
+        }
+        
+        .experience-description ul {
+            list-style-position: inside;
+            margin-top: 10px;
+        }
+        
+        .education-item {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+        
+        .education-title {
+            margin-bottom: 10px;
+        }
+        
+        .education-title h3 {
+            color: var(--dark-color);
+            font-size: 20px;
+        }
+        
+        .education-title .institution {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .education-title .period {
+            color: var(--secondary-color);
+        }
+        
+        .languages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .language-item {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .language-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .language-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+        
+        .language-level {
+            color: var(--secondary-color);
+        }
+        
+        .research-focus {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .research-focus h2 {
+            color: var(--white);
+        }
+        
+        .research-focus h2::after {
+            background-color: var(--white);
+        }
+        
+        .research-focus p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-links {
+            display: flex;
+            margin: 20px 0;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 10px;
+            font-size: 20px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            color: var(--secondary-color);
+            font-size: 14px;
+        }
+        
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            
+            .hero-content {
+                margin-top: 40px;
+            }
+            
+            h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .experience-title, .education-title {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 20px;
+            }
+            
+            .nav-links li {
+                margin: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">J. Boros</div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#expertise">Expertise</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#research">Research</a></li>
+                </ul>
+            </nav>
+            
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Julianna Boros</h1>
+                    <p class="title">Health Behavior & Mental Health Researcher</p>
+                    <div class="contact-info">
+                        <p>📧 boros@demografia.hu</p>
+                        <p>📞 (1) 345 6289</p>
+                    </div>
+                    <div style="margin-top: 30px;">
+                        <a href="#contact" class="btn">Contact Me</a>
+                        <a href="#research" class="btn btn-outline">My Research</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="/api/placeholder/400/400" alt="Julianna Boros" class="profile-img">
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section id="expertise">
+            <h2>Areas of Expertise</h2>
+            <div class="expertise-container">
+                <div class="expertise-card">
+                    <h3>Health Behavior Analysis</h3>
+                    <p>Specialized research focusing on patterns of health-related behaviors across different demographic groups.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>Mental Health Research</h3>
+                    <p>Investigating psychological wellbeing factors and their relationship with demographic indicators.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>Epidemiology</h3>
+                    <p>Analyzing disease patterns, causes, and effects in defined populations using statistical methods.</p>
+                </div>
+                <div class="expertise-card">
+                    <h3>Social Statistics</h3>
+                    <p>Developing methodologies for gathering and analyzing data related to social phenomena.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-title">
+                    <h3>Research Fellow</h3>
+                    <div>
+                        <div class="company">Hungarian Demographic Research Institute (KSH NKI)</div>
+                        <div class="period">2017 - Present</div>
+                    </div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Conducting research on health behavior and mental health patterns</li>
+                        <li>Analyzing demographic trends related to public health</li>
+                        <li>Publishing findings in scientific journals and research papers</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-title">
+                    <h3>Statistical Advisor</h3>
+                    <div>
+                        <div class="company">Hungarian Central Statistical Office (KSH)</div>
+                        <div class="period">2007 - 2017</div>
+                    </div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Developed and implemented methodologies for social statistics analysis</li>
+                        <li>Provided statistical consultation for government policy development</li>
+                        <li>Conducted data analysis for national health surveys</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-title">
+                    <h3>Data Analyst</h3>
+                    <div>
+                        <div class="company">Johan Béla National Epidemiological Center</div>
+                        <div class="period">2001 - 2007</div>
+                    </div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Analyzed epidemiological data to identify public health trends</li>
+                        <li>Contributed to national health monitoring initiatives</li>
+                        <li>Collaborated with international health organizations</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-title">
+                    <h3>Researcher</h3>
+                    <div>
+                        <div class="company">National Institute for Health Promotion</div>
+                        <div class="period">2001</div>
+                    </div>
+                </div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Participated in public health research projects</li>
+                        <li>Developed health promotion strategies based on population data</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="education">
+            <h2>Education</h2>
+            
+            <div class="education-item">
+                <div class="education-title">
+                    <h3>PhD Candidate in Demography and Sociology</h3>
+                    <div>
+                        <div class="institution">University of Pécs</div>
+                        <div class="period">2014 - Present</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-title">
+                    <h3>MSc in Epidemiology</h3>
+                    <div>
+                        <div class="institution">University of Debrecen, Center for Medical and Health Sciences</div>
+                        <div class="period">2000 - 2003</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-title">
+                    <h3>Degree in Economics</h3>
+                    <div>
+                        <div class="institution">University of Miskolc, Faculty of Economics</div>
+                        <div class="period">1996 - 2000</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-title">
+                    <h3>MA in Sociology, Teaching Qualification</h3>
+                    <div>
+                        <div class="institution">University of Miskolc, Faculty of Arts</div>
+                        <div class="period">1993 - 1998</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="teaching">
+            <h2>Teaching Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-title">
+                    <h3>Lecturer</h3>
+                    <div>
+                        <div class="company">Eötvös Loránd University (ELTE)</div>
+                        <div class="period">2011 - 2012</div>
+                    </div>
+                </div>
+                <div class="experience-description">
+                    <p>Faculty of Social Sciences, Health Policy Planning and Financing Master's Program</p>
+                    <ul>
+                        <li>Fundamentals of Epidemiology (lectures and seminars)</li>
+                        <li>Public Health Medicine (lectures and seminars)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="languages">
+            <h2>Languages</h2>
+            
+            <div class="languages">
+                <div class="language-item">
+                    <div class="language-name">Hungarian</div>
+                    <div class="language-level">Native</div>
+                </div>
+                
+                <div class="language-item">
+                    <div class="language-name">English</div>
+                    <div class="language-level">Intermediate</div>
+                </div>
+                
+                <div class="language-item">
+                    <div class="language-name">French</div>
+                    <div class="language-level">Intermediate</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="research" class="research-focus">
+            <h2>Research Focus</h2>
+            <p>Currently investigating the intersection of health behaviors and mental wellbeing, with emphasis on demographic factors that influence public health outcomes in Hungary. My research aims to identify key social determinants that affect population health trends and develop evidence-based interventions to address public health challenges.</p>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Julianna Boros</h3>
+                    <p>Health Behavior & Mental Health Researcher</p>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" class="social-icon">in</a>
+                    <a href="#" class="social-icon">G</a>
+                    <a href="#" class="social-icon">R</a>
+                </div>
+                
+                <div id="contact">
+                    <p>📧 boros@demografia.hu</p>
+                    <p>📞 (1) 345 6289</p>
+                </div>
+                
+                <div class="copyright">
+                    <p>&copy; 2025 Julianna Boros. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
